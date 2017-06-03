@@ -5,7 +5,10 @@
   "main": "src/index.js",
   "private": true,
   "scripts": {
-    "build": "ws build"
+    "build": "ws build",
+    "develop": "ws watch",
+    "build-release": "ws build -p",
+    "lint": "ws lint"
   },
   "ws": {
     "type": "spa"
@@ -13,9 +16,31 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/history": "^4.5.1",
+    "@types/react": "^15.0.26",
+    "@types/react-dom": "^15.5.0",
+    "@types/react-redux": "^4.4.41",
+    "@types/react-router": "^4.0.11",
+    "@types/react-router-redux": "^5.0.2",
+    "@types/redux-actions": "^1.2.5",
+    "@types/shortid": "^0.0.29",
+    "chart.js": "^2.6.0",
+    "history": "^4.6.1",
+    "immutable": "^3.8.1",
     "react": "^15.5.4",
+    "react-chartjs-2": "^2.1.0",
     "react-dom": "^15.5.4",
-    "simple-statistics": "^4.1.0"
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.3",
+    "semantic-ui-css": "^2.2.10",
+    "semantic-ui-react": "^0.68.5",
+    "shortid": "^2.2.8",
+    "simple-statistics": "^4.1.0",
+    "typescript-fsa": "^2.3.0",
+    "typescript-fsa-reducers": "^0.4.3"
   },
   "devDependencies": {
     "@mercateo/ws": "^1.0.2"
