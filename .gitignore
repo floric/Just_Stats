@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-tests/
+dist-release/
+.DS_Store
+.idea
+*.log
+.tmp
+*.iml

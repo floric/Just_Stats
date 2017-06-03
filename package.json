@@ -1,0 +1,23 @@
+{
+  "name": "stat-page",
+  "version": "0.0.1",
+  "description": "Understand statistics",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "build": "ws build"
+  },
+  "ws": {
+    "type": "spa"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "simple-statistics": "^4.1.0"
+  },
+  "devDependencies": {
+    "@mercateo/ws": "^1.0.2"
+  }
+}
