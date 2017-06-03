@@ -23,8 +23,12 @@ export const INITIAL_STATE: StateForBasics = {
 
 export const addDataAction = actionCreator<DataExample>('ACTION_BASIC_DATA_ADD');
 export const addDataHandler = (state: StateForBasics, data: DataExample): StateForBasics => {
+  if (!state.examples.filter(example => example!.name === data.name).isEmpty()) {
+    throw new Error(`Data named "${data.name}" already added!`);
+  }
+
   return { ...state, examples: state.examples.push(data) };
 };
 
 export const reducer = reducerWithInitialState<StateForBasics>(INITIAL_STATE)
-    .case(addDataAction, addDataHandler);
+  .case(addDataAction, addDataHandler);
