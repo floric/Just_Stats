@@ -1,3 +1,3 @@
-import { StateForBasics } from './reducer';
+import { RootStateWithRouter } from '../../index';
 
-export const getDataExamples = (state: StateForBasics) => state.examples;
+export const getDataExamples = (state: RootStateWithRouter) => state.store.data.examples;

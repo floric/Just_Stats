@@ -1,13 +1,16 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import { render } from 'react-dom';
-import { createStore, combineReducers, applyMiddleware, compose, StoreEnhancer } from 'redux';
-import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
 import { Route } from 'react-router';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware, compose, StoreEnhancer } from 'redux';
 import { List } from 'immutable';
+import createHistory from 'history/createBrowserHistory';
 
 import { reducer as BasicsReducer, StateForBasics, addDataAction } from './modules/basics-module/reducer';
+import StartPage from './components/start-page';
 
 const history = createHistory();
 const middleware = routerMiddleware(history);
@@ -17,13 +20,12 @@ const composeEnhancers = windowIfDefined.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
 const enhancer = composeEnhancers(applyMiddleware(middleware));
 
 import 'semantic-ui-css/semantic.min.css';
-import StartPage from './components/start-page';
 
-export interface RootState {
+interface RootState {
   data: StateForBasics;
 }
 
-interface RootStateWithRouter {
+export interface RootStateWithRouter {
   store: RootState;
   router: any;
 }
@@ -45,12 +47,12 @@ store.dispatch(addDataAction({ values: List.of(1, 2, 4, 8, 16, 32, 64, 128, 256,
 
 render(
   <Provider store={store}>
-    <div>
-      <ConnectedRouter history={history}>
+    <ConnectedRouter history={history}>
+      <div>
         <Route exact path="/" component={StartPage} />
         <Route path="/start" component={StartPage} />
-      </ConnectedRouter>
-    </div>
+      </div>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('app')
 );
