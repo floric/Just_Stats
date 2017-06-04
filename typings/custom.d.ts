@@ -20,3 +20,15 @@ declare module 'redux-create-reducer' {
 
     export function createReducer<T>(initialState: T, handlers: ReducersMapObject): T
 }
+
+declare module 'react-stickynode' {
+    export interface StickyProps {
+        enabled: boolean;
+        top: number;
+        bottomBoundary: number;
+        innerZ: number;
+    }
+
+    export default class Sticky extends React.Component<StickyProps, void>{
+    }
+}

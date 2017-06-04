@@ -9,6 +9,7 @@ const actionCreator = actionCreatorFactory();
 
 export interface StateForBasics {
   examples: List<DataExample>;
+  isMenuOpen: boolean;
 }
 
 export interface DataExample {
@@ -18,7 +19,8 @@ export interface DataExample {
 }
 
 export const INITIAL_STATE: StateForBasics = {
-  examples: List.of<DataExample>()
+  examples: List.of<DataExample>(),
+  isMenuOpen: false
 };
 
 export const addDataAction = actionCreator<DataExample>('ACTION_BASIC_DATA_ADD');
@@ -30,5 +32,11 @@ export const addDataHandler = (state: StateForBasics, data: DataExample): StateF
   return { ...state, examples: state.examples.push(data) };
 };
 
+export const setMenuStateAction = actionCreator<boolean>('ACTION_BASIC_DATA_SET_MENU_STATE');
+export const setMenuStateHandler = (state: StateForBasics, newState: boolean): StateForBasics => {
+  return { ...state, isMenuOpen: newState };
+};
+
 export const reducer = reducerWithInitialState<StateForBasics>(INITIAL_STATE)
-  .case(addDataAction, addDataHandler);
+  .case(addDataAction, addDataHandler)
+  .case(setMenuStateAction, setMenuStateHandler);

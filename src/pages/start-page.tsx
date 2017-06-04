@@ -11,7 +11,7 @@ import { DataInformation } from '../components/data-information';
 import { RootStateWithRouter } from '../index';
 import { DataExample } from '../modules/basics-module/reducer';
 import { getDataExamples } from '../modules/basics-module/selectors';
-import MainPage from './main-page';
+import MainPage from '../components/layout/page-content';
 
 interface StartPageProps {
   examples: List<DataExample>;
