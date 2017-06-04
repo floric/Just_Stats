@@ -1,15 +1,19 @@
 sudo: false
-
 language: node_js
-
 node_js:
-  - "7"
-
+- '7'
 cache:
   yarn: true
   directories:
-    - node_modules
-
+  - node_modules
 script:
-  - npm run -s build
-
+- npm run -s build-release
+deploy:
+  provider: s3
+  access_key_id:
+    secure: TXYzYGQrhJWij83npiTaqjM/drbNu03OHzvXYd3yNC9RL6y1OensUaBrI4qZ0vWRDLNQbZOFKpQNZ/eN8aZWgcuD2+lRUnODioqxsyrkldoPTNibi8BShRKT0y2IRCGS8xU2gLCfXGwI6wtBF99zAZIzGs8KSTn/0w4UbJ8ZGk5/5vpYhTCUJSLOz6sNyJ3OY54iUs8trefzN1dHAA4N4/sLJFPSl+KkYkcBjCF74ik4qqMho/Y+Bx2lpP3Bsxkhth/8BL7jjT122UqsYxr1+txF3uwFFbMeMCXJwqo1ychRWME9xXDcg4tvKutTjCQmWqt9PPabzaePlkxMJ+/AM32tTPwcyGaGlNG79s33VvOct96dsl31DsWj8v8eN5QlgzSgmlNlmI0yXWxEfafzC2ez5gr1z9MF/CVjRlM/CGTrwKt6csESar0VXdV4zC1N1MQv0oqWmaTQW/RQ0Ig8KF4/NTvnXh1WHRRgY2z3Oig2cOMf6PPd5/kOB0XamowtP7CVan9ly5SNPwLadXCkX3yyriB6w4Sv8NdBvYfo3xzKgG9lJwbEL6hiLlFfrJHQBaFs5XJCIZz/i7MdpKsDqMbza/ikuliqkC/HK1jmb2TykTGNpOVqAWhIJDRz2+ZEGOhjRmHp5JkhmrWMpnteYaJxMszfyvY+z+th0nETu4w=
+  secret_access_key:
+    secure: ZHXb2vJzpXDaFxt9JO5p+YQ/d6FN226wxgJx46m24CRdEvm1KGRvG8GI8Y/60JSRNgoIlaoo841J2q3nXyxZ2eUxg2tA9jweT2SuR3kCsoSuC8xfWRNSsXP9Id/gd/o/ZqD4C8TY+WWWvJGOo4UKRNPwD/DVoJ0QNVkywilZSTBi+MuGGQl823moPNCiZ2p64ew6eUTx9MlSMGX2S/eSjcgwVQblSlIDKqBLaKMFwJj8kjwwcbDvoY5+x4mE/V1UimqFUDO+0rDAEg1r1b+vgHz22ws/CsGCGyLF4hXiY6T4gZLC6pV9zqTo6VxiSsf7HavPazSNUutTk4pIXe5jawPp3sI94onxPF15syEZmlSQbBSyvYrAtPfhvQUf8rcEEHnx5cHWnbqhJ0kh2M8qlsIJWOY6aTM/sqoT+q3Vvhesq+dXUQlQ5AjnCJTYZjSKTJ6i+LZv5W8bVtqHENnqf6bsYfQU7Pfb5f4h+7V1339+BL/FFpJGrTNYjOwX6urTW1cZNOPH9mLfw5NEOzjB3cdhkbWDlIXyMebs994PqcAYhXoNRHyeRR8FFc0BXiJQWnvWMRNbBG8dN+mrn3JkDEx7ve+uywl5zNsYPtzZGWEZyac0jVLaIk5BwiNGAxuXopqbuiot1Pi3KHRBCuYyBNwZH4UFcNzEfrGLeX/zxsE=
+  bucket: just-stats-frontend
+  skip_cleanup: true
+  region: eu-west-1
