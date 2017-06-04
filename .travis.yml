@@ -8,6 +8,7 @@ cache:
   - node_modules
 script:
 - npm run -s build-release
+
 deploy:
   provider: s3
   access_key_id:
@@ -17,3 +18,4 @@ deploy:
   bucket: just-stats-frontend
   skip_cleanup: true
   region: eu-west-1
+  local-dir: dist-release
