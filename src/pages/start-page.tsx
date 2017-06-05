@@ -9,34 +9,22 @@ import { List } from 'immutable';
 
 import { DataInformation } from '../components/data-information';
 import { RootStateWithRouter } from '../index';
-import { DataExample } from '../modules/basics-module/reducer';
-import { getDataExamples } from '../modules/basics-module/selectors';
+import { BasicElement } from '../modules/basics-module/reducer';
 import MainPage from '../components/layout/page-content';
 
 interface StartPageProps {
-  examples: List<DataExample>;
+  elements: List<BasicElement>;
 }
 
 interface StartPagePropsWithRouter extends RouteComponentProps<{}> {
-  examples: List<DataExample>;
+  elements: List<BasicElement>;
 }
 
 const StartPage: SFC<StartPagePropsWithRouter> = (props) => {
   return (
     <MainPage>
-      <Grid>
-        <Grid.Column>
-          {props.examples.map(example => <DataInformation key={example!.name} data={example!.values.toArray()} name={example!.name} description={example!.description} />)}
-        </Grid.Column>
-      </Grid>
     </MainPage>
   );
 };
 
-const mapStateToProps = (state: RootStateWithRouter, ownProps: StartPageProps): StartPageProps => {
-  return {
-    examples: getDataExamples(state)
-  };
-};
-
-export default withRouter(connect(mapStateToProps)(StartPage));
+export default StartPage;

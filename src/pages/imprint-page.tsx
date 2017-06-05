@@ -6,7 +6,7 @@ import MainPage from '../components/layout/page-content';
 const ImprintPage: SFC<{}> = (props) => {
   return (
     <MainPage>
-      <Grid centered>
+      <Grid centered container>
         <Grid.Row>
           <Grid.Column>
             <Header>Imprint</Header>

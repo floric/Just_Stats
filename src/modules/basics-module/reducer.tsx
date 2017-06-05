@@ -3,40 +3,32 @@ import Immutable from 'immutable';
 import { List, Record } from 'immutable';
 import actionCreatorFactory from 'typescript-fsa';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
-import shortid from 'shortid';
+import { addCategoryAction, addCategoryHandler } from './actions';
 
 const actionCreator = actionCreatorFactory();
 
 export interface StateForBasics {
-  examples: List<DataExample>;
-  isMenuOpen: boolean;
+  categories: List<ElementsCategory>;
 }
 
-export interface DataExample {
-  values: List<number>;
+export interface BasicElement {
   name: string;
+  readableName: string;
   description: string;
+  shortDescription?: string;
+}
+
+export interface StatisticsElement extends BasicElement {
+  level: string;
+}
+
+export interface ElementsCategory extends BasicElement {
+  elements: List<StatisticsElement>;
 }
 
 export const INITIAL_STATE: StateForBasics = {
-  examples: List.of<DataExample>(),
-  isMenuOpen: false
-};
-
-export const addDataAction = actionCreator<DataExample>('ACTION_BASIC_DATA_ADD');
-export const addDataHandler = (state: StateForBasics, data: DataExample): StateForBasics => {
-  if (!state.examples.filter(example => example!.name === data.name).isEmpty()) {
-    throw new Error(`Data named "${data.name}" already added!`);
-  }
-
-  return { ...state, examples: state.examples.push(data) };
-};
-
-export const setMenuStateAction = actionCreator<boolean>('ACTION_BASIC_DATA_SET_MENU_STATE');
-export const setMenuStateHandler = (state: StateForBasics, newState: boolean): StateForBasics => {
-  return { ...state, isMenuOpen: newState };
+  categories: List.of<ElementsCategory>()
 };
 
 export const reducer = reducerWithInitialState<StateForBasics>(INITIAL_STATE)
-  .case(addDataAction, addDataHandler)
-  .case(setMenuStateAction, setMenuStateHandler);
+  .case(addCategoryAction, addCategoryHandler);
