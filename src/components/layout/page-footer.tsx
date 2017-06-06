@@ -1,10 +1,11 @@
 import React, { SFC } from 'react';
 import { Grid, Menu, Segment, List, Divider, Container, Icon } from 'semantic-ui-react';
 import { Link, NavLink } from 'react-router-dom';
+import { css } from 'glamor';
 
 export const PageFooter: SFC<{}> = (props) => {
   return (
-    <Grid centered inverted>
+    <Grid centered inverted stackable>
       <Grid.Row color="black" centered>
         <Grid.Column stretched floated="left" width={4}>
           <List link horizontal divided verticalAlign="middle" inverted>

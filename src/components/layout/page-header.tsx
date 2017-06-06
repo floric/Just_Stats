@@ -1,10 +1,11 @@
 import React, { SFC } from 'react';
 import { Grid, Header, Menu, Icon, Input } from 'semantic-ui-react';
 import { Link, NavLink } from 'react-router-dom';
+import { css } from 'glamor';
 
 export const PageHeader: SFC<{}> = (props) => {
   return (
-    <Grid stackable container>
+    <Grid stackable container  {...css({ marginTop: '2em', marginBottom: '2em' })}>
       <Grid.Column width={13}>
         <Menu secondary pointing stackable>
           <Menu.Item exact to="/" as={NavLink} activeClassName="active">

@@ -14,20 +14,22 @@ interface CategoryProps {
 export const Category: SFC<CategoryProps> = (props) => {
   return (
     <Grid container>
-      <Grid.Row stretched columns={2} {...css({ backgroundColor: Colors.secondary.toString() })}>
-        <Grid.Column width={3}>
+      <Grid.Row stretched columns={2} {...css({ backgroundColor: Colors.secondary.toString() })} verticalAlign="middle">
+        <Grid.Column width={3} textAlign="left">
           <Header as="h2" inverted>{props.category.readableName}</Header>
         </Grid.Column>
         <Grid.Column width={13} textAlign="right">
-          <p {...css({ color: Colors.light.lighten(0.5).toString() })}>{props.category.description}</p>
+          <p {...css({ color: Colors.light.toString() })}>{props.category.description}</p>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Card.Group stackable>
-          {props.category.elements.map((elem: StatisticsElement) => (
-            <ElementCard element={elem} key={elem.name} />
-          ))}
-        </Card.Group>
+        <Grid.Column>
+          <Card.Group stackable>
+            {props.category.elements.map((elem: StatisticsElement) => (
+              <ElementCard element={elem} key={elem.name} />
+            ))}
+          </Card.Group>
+        </Grid.Column>
       </Grid.Row>
     </Grid>
   );
