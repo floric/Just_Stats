@@ -1,9 +1,9 @@
 import React, { SFC } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, NavLink } from 'react-router-dom';
 import { Location, History } from 'history';
-import { Container, Grid, Card, Button, Header, Segment } from 'semantic-ui-react';
+import { Container, Grid, Card, Button, Header, Segment, Breadcrumb } from 'semantic-ui-react';
 import { Bar } from 'react-chartjs-2';
 import { List } from 'immutable';
 
@@ -32,7 +32,12 @@ const BasicElementPage: SFC<BasicElementPageWithRouter> = (props) => {
   }
 
   return (
-    <Grid container>
+    <Grid container textAlign="left">
+      <Breadcrumb>
+        <Breadcrumb.Section link to="/basics" as={NavLink} activeClassName="active">Basics</Breadcrumb.Section>
+        <Breadcrumb.Divider />
+        <Breadcrumb.Section active>{props.element.readableName}</Breadcrumb.Section>
+      </Breadcrumb>
       <Grid.Row>
         <Header as="h2">{props.element.readableName}</Header>
       </Grid.Row>

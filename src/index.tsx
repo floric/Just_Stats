@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose, StoreEnhancer } from 'redux';
 import { List } from 'immutable';
 import { css } from 'glamor';
-import createHashHistory from 'history/createHashHistory';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 import { reducer as BasicsReducer, StateForBasics, StatisticsElement } from './modules/basics-module/reducer';
 import { addCategoryAction } from './modules/basics-module/actions';
@@ -19,7 +19,7 @@ import ImprintPage from './pages/imprint-page';
 import ExamplesPage from './pages/examples-page';
 import BasicElementPage from './pages/basic-element-page';
 
-const history = createHashHistory();
+const history = createBrowserHistory();
 const middleware = routerMiddleware(history);
 
 const windowIfDefined = typeof window === 'undefined' ? null : window as any;
