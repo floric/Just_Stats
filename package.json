@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/classnames": "^2.2.0",
     "@types/color": "^1.0.4",
     "@types/history": "^4.5.1",
     "@types/react": "^15.0.26",
@@ -26,7 +27,9 @@
     "@types/react-router-redux": "^5.0.2",
     "@types/redux-actions": "^1.2.5",
     "@types/shortid": "^0.0.29",
+    "bulma": "^0.4.2",
     "chart.js": "^2.6.0",
+    "classnames": "^2.2.5",
     "color": "^1.0.3",
     "glamor": "^2.20.25",
     "history": "^4.6.1",
