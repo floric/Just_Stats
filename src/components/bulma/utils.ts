@@ -3,10 +3,11 @@ export interface ClassValue {
   value: string;
 }
 
-const colorValues = [ 'primary', 'info', 'success', 'warning', 'danger', 'light', 'dark'];
-const sizeValues = [ 'medium', 'large', 'fullheight' ];
+export const colorValues = [ 'primary', 'info', 'success', 'warning', 'danger', 'light', 'dark'];
 
-export const colors: ClassValue[] = colorValues.map(val => ({ identifier: `is-${val}`, value: val }));
-export const sizes: ClassValue[] = sizeValues.map(val => ({ identifier: `is-${val}`, value: val }));
+export const mapToClassValue = (val: string): ClassValue => ({ identifier: `is-${val}`, value: val });
 
-export const getCurrentVal = (values: ClassValue[], currentVal: string) => values.filter(val => val.value === currentVal).map(col => col.identifier);
+export const getCurrentValues = (values: string[], currentVal: string): string[] => values
+  .filter(val => val === currentVal)
+  .map(val => mapToClassValue(val))
+  .map(col => col.identifier);

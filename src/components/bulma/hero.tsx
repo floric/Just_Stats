@@ -2,7 +2,9 @@ import React, { SFC } from 'react';
 import classNames from 'classnames';
 
 import { Container } from './container';
-import { colors, sizes, getCurrentVal } from './utils';
+import { colorValues, getCurrentValues } from './utils';
+
+const sizeValues = [ 'medium', 'large', 'fullheight' ];
 
 export interface HeroProps {
   color?: string;
@@ -19,8 +21,8 @@ export const Hero: SFC<HeroProps> = (props) => {
       hero: true,
       'is-bold': props.bold
     },
-    props.color && getCurrentVal(colors, props.color),
-    props.size && getCurrentVal(sizes, props.size)
+    props.color && getCurrentValues(colorValues, props.color),
+    props.size && getCurrentValues(sizeValues, props.size)
   );
 
   return (
