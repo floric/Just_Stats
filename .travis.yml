@@ -7,7 +7,7 @@ cache:
   directories:
   - node_modules
 script:
-- yarn run ws build-css
+- npm run build-css
 - npm run -s build-release
 
 deploy:
