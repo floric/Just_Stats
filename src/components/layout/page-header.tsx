@@ -1,32 +1,63 @@
 import React, { SFC } from 'react';
-import { Grid, Header, Menu, Icon, Input } from 'semantic-ui-react';
 import { Link, NavLink } from 'react-router-dom';
 import { css } from 'glamor';
+import { Column, Columns, Tile, NavLeft, Nav, NavCenter, NavItem, Icon, NavToggle, NavRight, Field, Control, Button, Title, Hero, HeroHeader } from 'bloomer';
+import { connect } from 'react-redux';
+import { RootStateWithRouter } from '../../index';
+import { Dispatch } from 'redux';
+import { setMobileMenuStateAction } from '../../modules/basics-module/actions';
+import { isMobileMenuOpen } from '../../modules/basics-module/selectors';
 
-export const PageHeader: SFC<{}> = (props) => {
+export interface PageContentProps {
+  isMobileMenuOpen?: boolean;
+}
+
+interface DispatchProps {
+  setMobileMenuStateAction(newVal: boolean): void;
+  isMobileMenuOpen: boolean;
+}
+
+const PageHeaderSFC: SFC<PageContentProps & DispatchProps> = (props) => {
+  const { isMobileMenuOpen = false } = props;
+
   return (
-    <Grid stackable container  {...css({ marginTop: '2em', marginBottom: '2em' })}>
-      <Grid.Column width={13}>
-        <Menu secondary pointing stackable>
-          <Menu.Item exact to="/" as={NavLink} activeClassName="active">
-            <Icon name="home" /> Start
-          </Menu.Item>
-          <Menu.Item to="/basics" as={NavLink} activeClassName="active">
-            <Icon name="cubes" /> Basics
-          </Menu.Item>
-          <Menu.Item to="/examples" as={NavLink} activeClassName="active">
-            <Icon name="comments" /> Examples
-          </Menu.Item>
-        </Menu>
-      </Grid.Column>
-      <Grid.Column width={3} floated="right" textAlign="right" stretched>
-        <Input
-          icon={<Icon name="search" link />}
-          placeholder="Search..."
-        />
-      </Grid.Column>
-    </Grid>
+    <Hero isColor="primary">
+      <HeroHeader>
+        <Nav>
+          <NavLeft>
+            <NavItem isBrand>
+                <Title isSize={2}>
+                  <NavLink to="/" activeClassName="is-active">Just Stats.</NavLink>
+                </Title>
+            </NavItem>
+          </NavLeft>
+          <NavCenter>
+          </NavCenter>
+          <NavToggle isActive={isMobileMenuOpen} onClick={() => props.setMobileMenuStateAction(!isMobileMenuOpen)} />
+          <NavRight isMenu isActive={isMobileMenuOpen}>
+              <NavItem>
+                <NavLink to="/examples" activeClassName="is-active">Examples</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/basics" activeClassName="is-active">Basics</NavLink>
+              </NavItem>
+          </NavRight>
+        </Nav>
+      </HeroHeader>
+    </Hero>
   );
 };
 
-export default PageHeader;
+const mapDispatchToProps = (dispatch: Dispatch<PageContentProps>) => {
+  return {
+    setMobileMenuStateAction: (newState: boolean) => dispatch(setMobileMenuStateAction(newState))
+  };
+};
+
+const mapStateToProps = (state: RootStateWithRouter, ownProps: PageContentProps): PageContentProps => {
+  return {
+    isMobileMenuOpen: isMobileMenuOpen(state)
+  };
+};
+
+export const PageHeader = connect<any, any, any>(mapStateToProps, mapDispatchToProps)(PageHeaderSFC);

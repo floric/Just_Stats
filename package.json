@@ -6,15 +6,17 @@
   "private": true,
   "scripts": {
     "build": "ws build",
+    "build-css": "node-sass src/theme.scss src/theme.css",
     "develop": "ws watch",
+    "develop-css": "node-sass src/theme.scss src/theme.css --watch; ws watch",
     "build-release": "ws build -p",
     "lint": "ws lint"
   },
   "ws": {
     "type": "spa"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Florian Richter",
+  "license": "MIT",
   "dependencies": {
     "@types/classnames": "^2.2.0",
     "@types/color": "^1.0.4",
@@ -28,6 +30,7 @@
     "@types/redux-actions": "^1.2.5",
     "@types/shortid": "^0.0.29",
     "bloomer": "^0.5.5",
+    "bulma": "^0.4.2",
     "chart.js": "^2.6.0",
     "classnames": "^2.2.5",
     "color": "^1.0.3",
@@ -44,13 +47,14 @@
     "react-stickynode": "^1.3.1",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.3",
-    "semantic-ui-css": "^2.2.10",
+    "reselect": "^3.0.1",
     "shortid": "^2.2.8",
     "simple-statistics": "^4.1.0",
     "typescript-fsa": "^2.3.0",
     "typescript-fsa-reducers": "^0.4.3"
   },
   "devDependencies": {
-    "@mercateo/ws": "^1.0.2"
+    "@mercateo/ws": "^1.0.2",
+    "node-sass": "^4.5.3"
   }
 }

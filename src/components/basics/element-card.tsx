@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Header, List, Card } from 'semantic-ui-react';
+import { Card, CardHeaderTitle, CardHeader, CardHeaderIcon, CardContent, Content, Icon, Column, Columns, CardFooter, Container, Tag } from 'bloomer';
 
 import { StatisticsElement } from '../../modules/basics-module/reducer';
 
@@ -10,16 +10,21 @@ interface ElementCardProps {
 
 export const ElementCard: SFC<ElementCardProps> = (props) => {
   return (
-    <Card key={props.element.name}>
-      <Card.Content>
-        <Header>
-          <Link to={`/basics/${props.element.name}`}>{props.element.readableName}</Link>
-        </Header>
-      </Card.Content>
-      <Card.Content description={props.element.shortDescription} />
-      <Card.Content extra>
-        {props.element.level}
-      </Card.Content>
+    <Card>
+      <CardHeader>
+        <CardHeaderTitle>
+            <Link to={`basics/${props.element.name}`}>
+              {props.element.readableName}
+            </Link>
+        </CardHeaderTitle>
+      </CardHeader>
+      <CardContent>
+        <Content>
+            {props.element.shortDescription}
+        </Content>
+        <Tag><Icon isSize="small"><span className="fa fa-graduation-cap" /></Icon>&nbsp;{props.element.level}</Tag>&nbsp;
+        <Tag><Icon isSize="small"><span className="fa fa-clock-o" /></Icon>&nbsp;{props.element.timeToRead} minutes</Tag>
+      </CardContent>
     </Card>
   );
 };

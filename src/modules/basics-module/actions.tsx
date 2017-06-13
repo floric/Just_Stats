@@ -18,3 +18,8 @@ export const addCategoryHandler = (state: StateForBasics, newCat: ElementsCatego
 
   return { ...state, categories: state.categories.push({ ...newCat, elements: modifiedElements }) };
 };
+
+export const setMobileMenuStateAction = actionCreator<boolean>('ACTION_BASICS_SET_MOBILE_MENU_STATE');
+export const setMobileMenuStateHandler = (state: StateForBasics, newState: boolean): StateForBasics => {
+  return { ...state, isMobileMenuOpen: newState };
+};

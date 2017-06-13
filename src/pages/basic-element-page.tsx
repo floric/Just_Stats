@@ -3,28 +3,26 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { RouteComponentProps, NavLink } from 'react-router-dom';
 import { Location, History } from 'history';
-import { Container, Grid, Card, Button, Header, Segment, Breadcrumb } from 'semantic-ui-react';
 import { Bar } from 'react-chartjs-2';
 import { List } from 'immutable';
+import { Section, Title, Level, LevelRight, LevelLeft, Tag, Icon, Content } from 'bloomer';
 
 import { DataInformation } from '../components/data-information';
 import { RootStateWithRouter } from '../index';
 import { BasicElement, ElementsCategory, StatisticsElement } from '../modules/basics-module/reducer';
 import { getAllStatisticElements } from '../modules/basics-module/selectors';
 
-import MainPage from '../components/layout/page-content';
-import { Category } from '../components/basics/category';
+import PageContent from '../components/layout/page-content';
 
 interface BasicElementPageProps {
-  element: BasicElement;
+  element: StatisticsElement;
 }
 
 interface BasicElementPageMatchParams {
   elementName: string;
 }
 
-interface BasicElementPageWithRouter extends RouteComponentProps<{}>, BasicElementPageProps {
-}
+type BasicElementPageWithRouter = RouteComponentProps<{}> & BasicElementPageProps;
 
 const BasicElementPage: SFC<BasicElementPageWithRouter> = (props) => {
   if (!props.element) {
@@ -32,20 +30,22 @@ const BasicElementPage: SFC<BasicElementPageWithRouter> = (props) => {
   }
 
   return (
-    <Grid container textAlign="left">
-      <Breadcrumb>
-        <Breadcrumb.Section link to="/basics" as={NavLink} activeClassName="active">Basics</Breadcrumb.Section>
-        <Breadcrumb.Divider />
-        <Breadcrumb.Section active>{props.element.readableName}</Breadcrumb.Section>
-      </Breadcrumb>
-      <Grid.Row>
-        <Header as="h2">{props.element.readableName}</Header>
-      </Grid.Row>
-      <Grid.Row>
-        <Header as="h3">Description</Header>
-        <p>{props.element.description}</p>
-      </Grid.Row>
-    </Grid>
+    <Section>
+      <Level>
+        <LevelLeft>
+        <Title>
+          {props.element.readableName}
+        </Title>
+        </LevelLeft>
+        <LevelRight>
+          <Tag><Icon isSize="small"><span className="fa fa-graduation-cap" /></Icon>&nbsp;{props.element.level}</Tag>&nbsp;
+          <Tag><Icon isSize="small"><span className="fa fa-clock-o" /></Icon>&nbsp;{props.element.timeToRead} minutes</Tag>
+        </LevelRight>
+      </Level>
+      <Content>
+        {props.element.description}
+      </Content>
+    </Section>
   );
 };
 
