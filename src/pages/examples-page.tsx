@@ -11,7 +11,7 @@ import { RootStateWithRouter } from '../index';
 import { BasicElement, ElementsCategory } from '../modules/basics-module/reducer';
 
 import { PageContent } from '../components/layout/page-content';
-import { PageSection } from "../components/layout/page-section";
+import { PageSection } from '../components/layout/page-section';
 
 interface ExamplesPageProps {
 }
@@ -28,7 +28,7 @@ const ExamplesPage: SFC<ExamplesPagePropsWithRouter> = (props) => {
   );
 };
 
-const mapStateToProps = (state: RootStateWithRouter, ownProps: ExamplesPageProps): ExamplesPageProps => {
+const mapStateToProps = (state: RootStateWithRouter, ownProps: ExamplesPagePropsWithRouter): ExamplesPageProps => {
   return {
   };
 };

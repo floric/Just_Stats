@@ -45,7 +45,7 @@ const BasicsExactPage: SFC<BasicsPagePropsWithRouter> = (props) => {
   );
 };
 
-const mapStateToProps = (state: RootStateWithRouter, ownProps: BasicsPageProps): BasicsPageProps => {
+const mapStateToProps = (state: RootStateWithRouter, ownProps: BasicsPagePropsWithRouter): BasicsPageProps => {
   return {
     categories: getCategories(state)
   };
