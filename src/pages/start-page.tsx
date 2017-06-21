@@ -12,6 +12,8 @@ import { DataInformation } from '../components/data-information';
 import { RootStateWithRouter } from '../index';
 import { BasicElement } from '../modules/basics-module/reducer';
 import { PageContent } from '../components/layout/page-content';
+import * as Colors from '../utils/colors';
+import { PageSection } from '../components/layout/page-section';
 
 interface StartPageProps {
   elements: List<BasicElement>;
@@ -24,21 +26,21 @@ interface StartPagePropsWithRouter extends RouteComponentProps<{}> {
 const StartPage: SFC<StartPagePropsWithRouter> = (props) => {
   return (
     <PageContent>
-      <Section hasTextAlign="centered">
+      <PageSection backgroundColor={Colors.primary.lighten(0)}>
         <Title isSpaced>Hey!</Title>
-        <Subtitle>This page is a work-in-progress page for interactive learning of basic statistics elements.</Subtitle>
-      </Section>
-      <Section hasTextAlign="centered">
+        <Subtitle>This page is a work-in-progress page for <a href="#">interactive learning</a> of basic statistics elements.</Subtitle>
+      </PageSection>
+      <PageSection backgroundColor={Colors.secondary}>
         <Title>Goals</Title>
         <Notification isColor="light"><Title isSize={5}>Make it interactive.</Title></Notification>
         <Notification isColor="light"><Title isSize={5}>Arouse interest.</Title></Notification>
         <Notification isColor="light"><Title isSize={5}>Explain it visually and interactive.</Title></Notification>
-      </Section>
-      <Section>
+      </PageSection>
+      <PageSection backgroundColor={Colors.tertiary}>
         <Tile isAncestor>
           <Tile isParent>
             <Tile isChild>
-              <Box color="primary">
+              <Box>
                 <Title isHeading={3}>Reason</Title>
                 <Content>
                   <p>It seems like a lot of students, even at university try to avoid any kind of mathematics based on statistics.
@@ -69,7 +71,7 @@ const StartPage: SFC<StartPagePropsWithRouter> = (props) => {
             </Tile>
           </Tile>
         </Tile>
-      </Section>
+      </PageSection>
     </PageContent>
   );
 };

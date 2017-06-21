@@ -1,10 +1,11 @@
 import React, { SFC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { css } from 'glamor';
-import { Column, Columns, Tile, NavLeft, Nav, NavCenter, NavItem, Icon, NavToggle, NavRight, Field, Control, Button, Title, Hero, HeroHeader } from 'bloomer';
+import { Column, Columns, Tile, NavLeft, Nav, NavCenter, NavItem, Icon, NavToggle, NavRight, Field, Control, Button, Title, Hero, HeroHeader, HeroBody, Container } from 'bloomer';
 import { connect } from 'react-redux';
 import { RootStateWithRouter } from '../../index';
 import { Dispatch } from 'redux';
+
 import { setMobileMenuStateAction } from '../../modules/basics-module/actions';
 import { isMobileMenuOpen } from '../../modules/basics-module/selectors';
 
@@ -21,7 +22,7 @@ const PageHeaderSFC: SFC<PageContentProps & DispatchProps> = (props) => {
   const { isMobileMenuOpen = false } = props;
 
   return (
-    <Hero isColor="primary">
+    <Hero>
       <HeroHeader>
         <Nav>
           <NavLeft>
@@ -44,6 +45,8 @@ const PageHeaderSFC: SFC<PageContentProps & DispatchProps> = (props) => {
           </NavRight>
         </Nav>
       </HeroHeader>
+      <HeroBody>
+      </HeroBody>
     </Hero>
   );
 };

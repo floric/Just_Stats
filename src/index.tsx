@@ -18,6 +18,7 @@ import BasicsPage from './pages/basics-page';
 import ImprintPage from './pages/imprint-page';
 import ExamplesPage from './pages/examples-page';
 import BasicElementPage from './pages/basic-element-page';
+import * as Colors from './utils/colors';
 
 require('./theme.css');
 
@@ -85,7 +86,7 @@ store.dispatch(addCategoryAction({
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
+      <div {...css({ height: '100%' })}>
         <Route exact path="/" component={StartPage} />
         <Route path="/start" component={StartPage} />
         <Route path="/basics" component={BasicsPage} />

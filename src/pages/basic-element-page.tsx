@@ -13,6 +13,7 @@ import { BasicElement, ElementsCategory, StatisticsElement } from '../modules/ba
 import { getAllStatisticElements } from '../modules/basics-module/selectors';
 
 import PageContent from '../components/layout/page-content';
+import { PageSection } from '../components/layout/page-section';
 
 interface BasicElementPageProps {
   element: StatisticsElement;
@@ -30,7 +31,7 @@ const BasicElementPage: SFC<BasicElementPageWithRouter> = (props) => {
   }
 
   return (
-    <Section>
+    <PageSection>
       <Level>
         <LevelLeft>
         <Title>
@@ -45,7 +46,7 @@ const BasicElementPage: SFC<BasicElementPageWithRouter> = (props) => {
       <Content>
         {props.element.description}
       </Content>
-    </Section>
+    </PageSection>
   );
 };
 

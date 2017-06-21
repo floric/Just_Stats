@@ -1,22 +1,3 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 
-$blue: #1874B2;
-$red: #ff2222;
-$red-invert: #fff;
-
-$family-serif: "PT Sans", "Merriweather", "Georgia", serif;
-
-$primary: $blue;
-$primary-invert: $red-invert;
-$danger: $orange;
-$family-primary: $family-serif;
-
-$title-weight: $weight-bold;
-
 @import "../node_modules/bulma/bulma.sass";
-
-.content {
-  h1, h2 {
-    font-weight: $weight-bold;
-  }
-}

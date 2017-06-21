@@ -11,6 +11,7 @@ import { RootStateWithRouter } from '../index';
 import { BasicElement, ElementsCategory } from '../modules/basics-module/reducer';
 
 import { PageContent } from '../components/layout/page-content';
+import { PageSection } from "../components/layout/page-section";
 
 interface ExamplesPageProps {
 }
@@ -20,7 +21,9 @@ type ExamplesPagePropsWithRouter = RouteComponentProps<{}> & ExamplesPageProps;
 const ExamplesPage: SFC<ExamplesPagePropsWithRouter> = (props) => {
   return (
     <PageContent>
-      <div>Examples page</div>
+      <PageSection>
+        <p>Examples page</p>
+      </PageSection>
     </PageContent>
   );
 };

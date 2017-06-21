@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { css } from 'glamor';
-import { Footer, Columns, Column, Icon, Content } from 'bloomer';
+import { Footer, Columns, Column, Icon, Content, Container } from 'bloomer';
 
 export const PageFooter: SFC<{}> = (props) => {
   return (

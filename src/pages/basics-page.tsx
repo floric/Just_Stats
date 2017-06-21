@@ -16,6 +16,7 @@ import { PageContent } from '../components/layout/page-content';
 import { Category } from '../components/basics/category';
 
 import BasicElementPage from '../pages/basic-element-page';
+import { PageSection } from '../components/layout/page-section';
 
 interface BasicsPageProps {
   categories: List<ElementsCategory>;
@@ -36,9 +37,9 @@ const BasicsExactPage: SFC<BasicsPagePropsWithRouter> = (props) => {
   return (
     <div>
       {props.categories.map((cat: ElementsCategory) => (
-        <Section key={cat.name}>
+        <PageSection key={cat.name}>
           <Category category={cat} key={cat.name} />
-        </Section>
+        </PageSection>
       ))}
     </div>
   );
