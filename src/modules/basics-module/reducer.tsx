@@ -3,7 +3,11 @@ import Immutable from 'immutable';
 import { List, Record } from 'immutable';
 import actionCreatorFactory from 'typescript-fsa';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
+import { SFC, ComponentClass } from 'react';
+import { RouteComponentProps } from 'react-router';
+
 import { addCategoryAction, addCategoryHandler, setMobileMenuStateAction, setMobileMenuStateHandler } from './actions';
+import { StatisticsElementViewProps } from '../../pages/basics-page';
 
 const actionCreator = actionCreatorFactory();
 
@@ -19,9 +23,17 @@ export interface BasicElement {
   shortDescription?: string;
 }
 
+export interface Resource {
+  link: string;
+  name: string;
+}
+
 export interface StatisticsElement extends BasicElement {
   level: string;
   timeToRead: number;
+  labels: string[];
+  view: ComponentClass<RouteComponentProps<{}> & StatisticsElementViewProps>;
+  resources: Resource[];
 }
 
 export interface ElementsCategory extends BasicElement {

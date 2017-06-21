@@ -22,12 +22,18 @@ interface BasicsPageProps {
   categories: List<ElementsCategory>;
 }
 
+export interface StatisticsElementViewProps {
+  element: StatisticsElement;
+}
+
 type BasicsPagePropsWithRouter = RouteComponentProps<{}> & BasicsPageProps;
 
 const BasicsPage: SFC<BasicsPagePropsWithRouter> = (props) => {
   return (
     <PageContent>
-      <Route path={`${props.match.url}/:elementName`} component={BasicElementPage} />
+      {props.categories.map((cat: ElementsCategory) =>
+        cat.elements.map((elem: StatisticsElement) =>
+          <Route path={`${props.match.url}/${elem.name}`} component={() => <elem.view {...props} element={elem} />} />))}
       <Route exact path={`${props.match.url}`} component={connect(mapStateToProps)(BasicsExactPage)} />
     </PageContent>
   );

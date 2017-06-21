@@ -19,9 +19,7 @@ export const ElementCard: SFC<ElementCardProps> = (props) => {
         </CardHeaderTitle>
       </CardHeader>
       <CardContent>
-        <Content>
-            {props.element.shortDescription}
-        </Content>
+        <p>{props.element.shortDescription}</p>
         <Tag><Icon isSize="small"><span className="fa fa-graduation-cap" /></Icon>&nbsp;{props.element.level}</Tag>&nbsp;
         <Tag><Icon isSize="small"><span className="fa fa-clock-o" /></Icon>&nbsp;{props.element.timeToRead} minutes</Tag>
       </CardContent>

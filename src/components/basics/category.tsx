@@ -14,7 +14,7 @@ export const Category: SFC<CategoryProps> = (props) => {
   return (
     <div>
       <Title>{props.category.readableName}</Title>
-      <Subtitle>{props.category.shortDescription}</Subtitle>
+      <Subtitle>{props.category.description}</Subtitle>
       <Tile isAncestor>
       {props.category.elements.map((elem: StatisticsElement) =>
         <Tile isParent key={elem.name}>

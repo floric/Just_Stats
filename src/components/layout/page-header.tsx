@@ -25,9 +25,9 @@ const PageHeaderSFC: SFC<PageContentProps & DispatchProps> = (props) => {
     <Hero>
       <HeroHeader>
         <Nav>
-          <NavLeft>
+          <NavLeft {...css({ overflow: 'initial ' })}>
             <NavItem isBrand>
-                <Title isSize={2}>
+                <Title isSize={1}>
                   <NavLink to="/" activeClassName="is-active">Just Stats.</NavLink>
                 </Title>
             </NavItem>
@@ -45,8 +45,6 @@ const PageHeaderSFC: SFC<PageContentProps & DispatchProps> = (props) => {
           </NavRight>
         </Nav>
       </HeroHeader>
-      <HeroBody>
-      </HeroBody>
     </Hero>
   );
 };
