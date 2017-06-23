@@ -22,6 +22,7 @@ import * as Colors from './utils/colors';
 import { varianceElement } from './pages/basics/variance-view';
 
 require('./theme.css');
+// require('mathjax');
 
 const history = createHashHistory();
 const middleware = routerMiddleware(history);

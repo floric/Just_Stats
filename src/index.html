@@ -27,6 +27,23 @@
       height: 100%
     }
   </style>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Startup.MenuZoom = function () {}
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+      },
+      showMathMenu: false,
+      showMathMenuMSIE: false,
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
 </head>
 <body>
   <div id="app">

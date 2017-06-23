@@ -12,7 +12,7 @@ import { RootStateWithRouter } from '../../index';
 import { ElementHeader } from '../../components/basics/element-header';
 import { StatisticsElementViewProps } from '../basics-page';
 import { StatisticsElement } from '../../modules/basics-module/reducer';
-import { ElementFooter } from "../../components/basics/element-footer";
+import { ElementFooter } from '../../components/basics/element-footer';
 
 type VarianceViewProps = RouteComponentProps<{}> & StatisticsElementViewProps;
 
@@ -26,7 +26,6 @@ export const VarianceView: ComponentClass<VarianceViewProps> =  connect(mapState
     <div>
       <ElementHeader element={props.element} />
       <PageSection>
-        <p>Custom content for variance.</p>
       </PageSection>
       <ElementFooter element={props.element} />
     </div>
@@ -41,6 +40,7 @@ export const varianceElement: StatisticsElement = {
   timeToRead: 9,
   view: VarianceView,
   labels: [ 'Basic knowledge', 'Dispersion' ],
+  symbols: 'var(X) \\; or \\; \\sigma^2',
   resources: [
     { link: 'https://en.wikipedia.org/wiki/Variance', name: 'Wikipedia' },
     { link: 'http://www.statisticshowto.com/variance/', name: 'StatisticsHowTo' }

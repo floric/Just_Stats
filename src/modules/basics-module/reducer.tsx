@@ -34,6 +34,7 @@ export interface StatisticsElement extends BasicElement {
   labels: string[];
   view: ComponentClass<RouteComponentProps<{}> & StatisticsElementViewProps>;
   resources: Resource[];
+  symbols: string;
 }
 
 export interface ElementsCategory extends BasicElement {

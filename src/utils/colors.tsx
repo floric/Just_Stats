@@ -10,4 +10,4 @@ export const textDark = Color('#222');
 export const textLight = Color('#FFF');
 
 export const dark = Color({ r: 28, g: 28, b: 28 });
-export const light = Color({ r: 230, g: 230, b: 230 });
+export const light = Color({ r: 244, g: 244, b: 244 });

@@ -5,6 +5,7 @@ import { Card, CardHeaderTitle, CardHeader, CardHeaderIcon, CardContent, Content
 import { StatisticsElement, Resource } from '../../modules/basics-module/reducer';
 import { PageSection } from '../layout/page-section';
 import * as Colors from '../../utils/colors';
+import { ExternalLink } from './external-link';
 
 interface ElementFooterProps {
   element: StatisticsElement;
@@ -13,10 +14,12 @@ interface ElementFooterProps {
 export const ElementFooter: SFC<ElementFooterProps> = (props) => {
   return (
     <PageSection>
-      <Title isHeading={4}>More resources</Title>
+      <Title isSize={3}>More resources</Title>
       <ul>
-        {props.element.resources.map((res: Resource) => <li key={`link-${res.name}`}><a href={res.link}>{res.name}</a></li>)}
+        {props.element.resources.map((res: Resource) =>
+          <li key={`link-${res.name}`}>
+            <ExternalLink url={res.link} name={res.name} />
+          </li>)}
       </ul>
     </PageSection>
-  );
-};
+  );};

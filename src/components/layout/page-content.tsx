@@ -37,9 +37,20 @@ const globalOverride = css({
     color: Colors.textDark.toString(),
     fontWeight: 'lighter'
   },
-  '& .nav, .card-header': {
+  '& .nav': {
     borderBottom: `0.2rem solid ${Colors.textLight.toString()}`,
     boxShadow: 'none'
+  },
+  '& .card-footer': {
+    borderTop: `0.1rem solid ${Colors.textLight.toString()}`,
+    boxShadow: 'none'
+  },
+  '& .card-header': {
+    borderBottom: `0.1rem solid ${Colors.textLight.toString()}`,
+    boxShadow: 'none'
+  },
+  '& .card-footer-item:not(:last-child)': {
+    borderRight: `0.1rem solid ${Colors.textLight.toString()}`
   },
   '& .nav-menu': {
     backgroundColor: Colors.backgroundDark.toString()
