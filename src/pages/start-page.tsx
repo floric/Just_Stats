@@ -28,7 +28,7 @@ const StartPage: SFC<StartPagePropsWithRouter> = (props) => {
     <PageContent>
       <PageSection backgroundColor={Colors.primary.lighten(0)}>
         <Title isSpaced>Hey!</Title>
-        <Subtitle>This page is a work-in-progress page for <a href="#">interactive learning</a> of basic statistics elements.</Subtitle>
+        <Subtitle>This page is a work-in-progress application for interactive and easy-to-understand learning of basic statistics elements.</Subtitle>
       </PageSection>
       <PageSection backgroundColor={Colors.secondary}>
         <Title>Goals</Title>

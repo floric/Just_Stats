@@ -20,7 +20,6 @@ export interface BasicElement {
   name: string;
   readableName: string;
   description: string;
-  shortDescription?: string;
 }
 
 export interface Resource {
@@ -34,7 +33,9 @@ export interface StatisticsElement extends BasicElement {
   labels: string[];
   view: ComponentClass<RouteComponentProps<{}> & StatisticsElementViewProps>;
   resources: Resource[];
+  relatedElements: string[];
   symbols: string;
+  category: string;
 }
 
 export interface ElementsCategory extends BasicElement {

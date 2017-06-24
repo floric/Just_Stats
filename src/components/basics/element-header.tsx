@@ -16,7 +16,7 @@ export const ElementHeader: SFC<ElementHeaderProps> = (props) => {
   return (
     <PageSection>
       <Columns>
-        <Column hasTextAlign="left">
+        <Column>
           <Title isSize={2}>{props.element.readableName}</Title>
         </Column>
         <Column hasTextAlign="right">

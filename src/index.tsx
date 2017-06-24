@@ -17,12 +17,13 @@ import StartPage from './pages/start-page';
 import BasicsPage from './pages/basics-page';
 import ImprintPage from './pages/imprint-page';
 import ExamplesPage from './pages/examples-page';
+import ElementPage from './pages/element-page';
 import BasicElementPage from './pages/basic-element-page';
 import * as Colors from './utils/colors';
 import { varianceElement } from './pages/basics/variance-view';
+import { covarianceElement } from './pages/basics/covariance-view';
 
 require('./theme.css');
-// require('mathjax');
 
 const history = createHashHistory();
 const middleware = routerMiddleware(history);
@@ -51,10 +52,10 @@ const store = createStore(
 
 store.dispatch(addCategoryAction({
   name: 'atoms',
-  description: 'Most basic elements everybody needs to know to understand deeper things.',
+  description: 'Most basic elements everybody needs to know to understand more complex techniques.',
   readableName: 'Atoms',
   elements: List.of<StatisticsElement>(
-    varianceElement
+    varianceElement, covarianceElement
   )
 }));
 
@@ -65,6 +66,7 @@ render(
         <Route exact path="/" component={StartPage} />
         <Route path="/start" component={StartPage} />
         <Route path="/basics" component={BasicsPage} />
+        <Route path="/element" component={ElementPage} />
         <Route path="/examples" component={ExamplesPage} />
         <Route path="/imprint" component={ImprintPage} />
       </div>

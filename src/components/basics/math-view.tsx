@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 interface MathViewProps {
   tex: string;
+  isInline?: boolean;
 }
 
 export class MathView extends React.Component<MathViewProps, {}> {
@@ -16,10 +17,11 @@ export class MathView extends React.Component<MathViewProps, {}> {
   }
 
   render() {
-    const tex = '$$' + this.props.tex + '$$';
+    const { isInline = false, tex } = this.props;
+    const content = isInline ? '$' + tex + '$' : '$$' + tex + '$$';
 
     return (
-      <div>{tex}</div>
+      <div>{content}</div>
     );
   }
 }

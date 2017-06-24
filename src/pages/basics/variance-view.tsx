@@ -35,12 +35,14 @@ export const VarianceView: ComponentClass<VarianceViewProps> =  connect(mapState
 export const varianceElement: StatisticsElement = {
   name: 'variance',
   readableName: 'Variance',
-  description: 'In probability theory and statistics, variance is the expectation of the squared deviation of a random variable from its mean, and it informally measures how far a set of (random) numbers are spread out from their mean. The variance has a central role in statistics. It is used in descriptive statistics, statistical inference, hypothesis testing, goodness of fit, and Monte Carlo sampling, amongst many others. This makes it a central quantity in numerous fields such as physics, biology, chemistry, cryptography, economics, and finance. The variance is the square of the standard deviation, the second central moment of a distribution, and the covariance of the random variable with itself, and it is often represented by {\displaystyle \sigma ^{2}} \sigma ^{2}, {\displaystyle s^{2}} s^{2}, or {\displaystyle \operatorname {Var} (X)} \operatorname {Var} (X).',
+  description: '(taken from Wikipedia for testing) In probability theory and statistics, variance is the expectation of the squared deviation of a random variable from its mean, and it informally measures how far a set of (random) numbers are spread out from their mean. The variance has a central role in statistics. It is used in descriptive statistics, statistical inference, hypothesis testing, goodness of fit, and Monte Carlo sampling, amongst many others. This makes it a central quantity in numerous fields such as physics, biology, chemistry, cryptography, economics, and finance. The variance is the square of the standard deviation, the second central moment of a distribution, and the covariance of the random variable with itself.',
   level: 'simple',
   timeToRead: 9,
   view: VarianceView,
   labels: [ 'Basic knowledge', 'Dispersion' ],
+  relatedElements: [ 'covariance' ],
   symbols: 'var(X) \\; or \\; \\sigma^2',
+  category: 'atoms',
   resources: [
     { link: 'https://en.wikipedia.org/wiki/Variance', name: 'Wikipedia' },
     { link: 'http://www.statisticshowto.com/variance/', name: 'StatisticsHowTo' }

@@ -20,8 +20,8 @@ export const ElementSymbol: SFC<ElementSymbolProps> = (props) => {
           Symbol
         </CardHeaderTitle>
       </CardHeader>
-      <CardContent {...css({ backgroundColor: Colors.light.toString() })}>
-        <MathView tex={props.element.symbols} />
+      <CardContent {...css({ backgroundColor: Colors.backgroundLight.toString(), fontSize: '1.8rem', textAlign: 'center' })}>
+        <MathView isInline tex={props.element.symbols} />
       </CardContent>
     </Card>
   );

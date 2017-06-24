@@ -33,7 +33,7 @@ const BasicsPage: SFC<BasicsPagePropsWithRouter> = (props) => {
     <PageContent>
       {props.categories.map((cat: ElementsCategory) =>
         cat.elements.map((elem: StatisticsElement) =>
-          <Route path={`${props.match.url}/${elem.name}`} component={() => <elem.view {...props} element={elem} />} />))}
+          <Route path={`${cat.name}/${elem.name}`} component={() => <elem.view {...props} element={elem} />} />))}
       <Route exact path={`${props.match.url}`} component={connect(mapStateToProps)(BasicsExactPage)} />
     </PageContent>
   );

@@ -13,7 +13,7 @@ export const addCategoryHandler = (state: StateForBasics, newCat: ElementsCatego
   }
 
   const modifiedElements: List<StatisticsElement> = newCat.elements
-    .map((elem: StatisticsElement) => ({ ...elem, shortDescription: `${elem.description.substring(0, 140)}...` }))
+    .map((elem: StatisticsElement) => Object.assign({}, elem, { url: `basics/${newCat.name}/${elem.name}` }))
     .toList();
 
   return { ...state, categories: state.categories.push({ ...newCat, elements: modifiedElements }) };

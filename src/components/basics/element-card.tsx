@@ -13,13 +13,13 @@ export const ElementCard: SFC<ElementCardProps> = (props) => {
     <Card>
       <CardHeader>
         <CardHeaderTitle>
-            <Link to={`basics/${props.element.name}`}>
+            <Link to={`element/${props.element.category}/${props.element.name}`}>
               {props.element.readableName}
             </Link>
         </CardHeaderTitle>
       </CardHeader>
       <CardContent>
-        <p>{props.element.shortDescription}</p>
+        {`${props.element.description.substring(0, 280)}...`}
       </CardContent>
       <CardFooter>
         <CardFooterItem>

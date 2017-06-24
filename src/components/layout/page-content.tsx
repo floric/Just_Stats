@@ -19,6 +19,9 @@ import * as Colors from '../../utils/colors';
 interface PageContentProps {
 }
 
+const borderFat = `0.25rem solid ${Colors.textLight.toString()}`;
+const borderSlim = `0.1rem solid ${Colors.textLight.toString()}`;
+
 const globalOverride = css({
   color: Colors.textDark,
   '& .hero, .footer, .box, .notification, .card': {
@@ -28,9 +31,12 @@ const globalOverride = css({
     color: Colors.textLight.toString(),
     fontWeight: 'bold'
   },
-  '& .box, .notification, .card': {
-    border: '0.2rem solid white',
-    borderRadius: '0.5rem',
+  '& .notification': {
+    border: borderFat,
+    borderRadius: '0.6rem',
+    boxShadow: 'none'
+  },
+  '& .card': {
     boxShadow: 'none'
   },
   '& .content, .subtitle': {
@@ -38,15 +44,17 @@ const globalOverride = css({
     fontWeight: 'lighter'
   },
   '& .nav': {
-    borderBottom: `0.2rem solid ${Colors.textLight.toString()}`,
+    borderBottom: borderFat,
     boxShadow: 'none'
   },
   '& .card-footer': {
-    borderTop: `0.1rem solid ${Colors.textLight.toString()}`,
+    borderTop: borderSlim,
     boxShadow: 'none'
   },
-  '& .card-header': {
-    borderBottom: `0.1rem solid ${Colors.textLight.toString()}`,
+  '& .card-header, .box': {
+    borderBottom: borderFat,
+    borderTop: borderFat,
+    borderRadius: 0,
     boxShadow: 'none'
   },
   '& .card-footer-item:not(:last-child)': {
