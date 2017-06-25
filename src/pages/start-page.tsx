@@ -8,7 +8,6 @@ import { List } from 'immutable';
 import { css } from 'glamor';
 import { Section, Columns, Column, Tile, Image, Title, Box, CardHeader, Notification, Card, CardHeaderTitle, CardHeaderIcon, CardImage, CardContent, Media, MediaLeft, MediaContent, Subtitle, Icon, Content } from 'bloomer';
 
-import { DataInformation } from '../components/data-information';
 import { RootStateWithRouter } from '../index';
 import { BasicElement } from '../modules/basics-module/reducer';
 import { PageContent } from '../components/layout/page-content';

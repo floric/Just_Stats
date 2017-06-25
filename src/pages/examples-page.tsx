@@ -6,7 +6,6 @@ import { Location, History } from 'history';
 import { Bar } from 'react-chartjs-2';
 import { List } from 'immutable';
 
-import { DataInformation } from '../components/data-information';
 import { RootStateWithRouter } from '../index';
 import { BasicElement, ElementsCategory } from '../modules/basics-module/reducer';
 

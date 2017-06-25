@@ -7,7 +7,6 @@ import { Bar } from 'react-chartjs-2';
 import { List } from 'immutable';
 import { Column, Columns, Section } from 'bloomer';
 
-import { DataInformation } from '../components/data-information';
 import { RootStateWithRouter } from '../index';
 import { BasicElement, ElementsCategory, StatisticsElement } from '../modules/basics-module/reducer';
 import { getCategories, getAllStatisticElements } from '../modules/basics-module/selectors';
