@@ -39,7 +39,7 @@ const globalOverride = css({
   '& .card': {
     boxShadow: 'none'
   },
-  '& .content, .subtitle': {
+  '& .content, .subtitle, p': {
     color: Colors.textDark.toString(),
     fontWeight: 'lighter'
   },
@@ -57,11 +57,23 @@ const globalOverride = css({
     borderRadius: 0,
     boxShadow: 'none'
   },
+  '& p.card-header-title': {
+    fontWeight: 'bolder'
+  },
   '& .card-footer-item:not(:last-child)': {
     borderRight: `0.1rem solid ${Colors.textLight.toString()}`
   },
   '& .nav-menu': {
     backgroundColor: Colors.backgroundDark.toString()
+  },
+  '& .nav a': {
+    color: Colors.textLight.toString()
+  },
+  '& .nav a.is-active': {
+    color: Colors.textLight.toString()
+  },
+  '& .nav a:hover': {
+    color: Colors.textLight.darken(0.1).toString()
   },
   '& .nav-toggle span': {
     backgroundColor: Colors.textLight.toString()
@@ -70,14 +82,27 @@ const globalOverride = css({
     backgroundColor: Colors.textDark.toString()
   },
   '& a': {
-    color: Colors.textLight.toString()
+    color: Colors.primary.toString()
   },
   '& a.is-active': {
-    color: Colors.textLight.toString(),
+    color: Colors.primary.toString(),
     fontWeight: 'bold'
   },
   '& a:hover': {
-    color: Colors.textLight.darken(0.1).toString()
+    color: Colors.primary.darken(0.1).toString()
+  },
+  '& .select select': {
+    color: Colors.textDark.toString(),
+    backgroundColor: Colors.backgroundLight.toString(),
+    borderRadius: 0,
+    border: borderFat,
+    height: 'auto'
+  },
+  '& .select': {
+    height: 'auto'
+  },
+  '& .select:after': {
+    borderColor: Colors.primary.toString()
   },
   '@media(max-width: 768px) and screen': {
     color: Colors.textDark.toString()

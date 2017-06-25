@@ -11,10 +11,8 @@ import { DataInformation } from '../components/data-information';
 import { RootStateWithRouter } from '../index';
 import { BasicElement, ElementsCategory, StatisticsElement } from '../modules/basics-module/reducer';
 import { getCategories, getAllStatisticElements } from '../modules/basics-module/selectors';
-
 import { PageContent } from '../components/layout/page-content';
 import { Category } from '../components/basics/category';
-
 import BasicElementPage from '../pages/basic-element-page';
 import { PageSection } from '../components/layout/page-section';
 

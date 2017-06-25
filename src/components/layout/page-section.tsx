@@ -21,19 +21,14 @@ interface PageSectionProps {
 
 export const PageSection: SFC<PageSectionProps> = (props) => {
   const { backgroundColor = Colors.background } = props;
-  let textColor;
-
-  if (backgroundColor.luminosity() < 0.7) {
-    textColor = Colors.textLight.toString();
-  } else {
-    textColor = Colors.textDark.toString();
-  }
+  const isDarkBackground = backgroundColor.luminosity() < 0.2;
+  const cssProperties = Object.assign({ backgroundColor: `${backgroundColor}` }, isDarkBackground ? { color: `${Colors.textLight.toString()}!important` } : {});
 
   return (
-    <Section {...css({ backgroundColor: `${backgroundColor}`, color: `${textColor}!important` })}>
-        <Container>
-          {props.children}
-        </Container>
+    <Section {...css(cssProperties)}>
+      <Container>
+        {props.children}
+      </Container>
     </Section>
   );
 };

@@ -25,4 +25,3 @@ export class MathView extends React.Component<MathViewProps, {}> {
     );
   }
 }
-

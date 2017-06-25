@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { RouteComponentProps, NavLink } from 'react-router-dom';
 import { Location, History } from 'history';
-import { Bar } from 'react-chartjs-2';
 import { List } from 'immutable';
-import { Section, Title, Level, LevelRight, LevelLeft, Tag, Icon, Content, Container } from 'bloomer';
+import { Section, Title, Level, LevelRight, LevelLeft, Tag, Icon, Content, Container, Columns, Column, Control, Select } from 'bloomer';
+import { variance } from 'simple-statistics';
 
 import { PageSection } from '../../components/layout/page-section';
 import { RootStateWithRouter } from '../../index';
@@ -13,6 +13,9 @@ import { ElementHeader } from '../../components/basics/element-header';
 import { StatisticsElementViewProps } from '../basics-page';
 import { StatisticsElement } from '../../modules/basics-module/reducer';
 import { ElementFooter } from '../../components/basics/element-footer';
+import * as Colors from '../../utils/colors';
+import { MathBarDiagram } from '../../components/basics/math-bar-diagram';
+import { alternatingSample } from '../../utils/samples';
 
 type VarianceViewProps = RouteComponentProps<{}> & StatisticsElementViewProps;
 
@@ -21,11 +24,25 @@ const mapStateToProps = (state: RootStateWithRouter, ownProps: VarianceViewProps
   };
 };
 
-export const VarianceView: ComponentClass<VarianceViewProps> =  connect(mapStateToProps)((props) => {
+const calculateVariance = (values: number[]): number => {
+  return values.length > 0 ? variance(values) : 0;
+};
+
+export const VarianceView: ComponentClass<VarianceViewProps> = connect(mapStateToProps)((props) => {
   return (
     <div>
       <ElementHeader element={props.element} />
       <PageSection>
+        <Title>Example</Title>
+        <Columns>
+          <Column>
+            <p>This example will show how changing the sample values influences the value of the covariance. You can switch between different sample sets and see directly the result.</p>
+          </Column>
+          <Column>
+            <MathBarDiagram title="Variance" isExpandable onExpandClicked={() => {}} calculationFunction={calculateVariance} />
+          </Column>
+        </Columns>
+        <Title>Calculation</Title>
       </PageSection>
       <ElementFooter element={props.element} />
     </div>

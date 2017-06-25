@@ -6,12 +6,12 @@ import { Footer, Columns, Column, Icon, Content, Container } from 'bloomer';
 export const PageFooter: SFC<{}> = (props) => {
   return (
     <Footer>
-      <Columns>
+      <Columns isFlex>
         <Column hasTextAlign="left">
           <NavLink to="/imprint" activeClassName="is-active">Contact</NavLink>
         </Column>
         <Column hasTextAlign="centered">
-          <p>Just statistics.</p>
+          Just statistics.
         </Column>
         <Column hasTextAlign="right">
           Source on <a href="https://github.com/floric/Just_Stats" target="_href">Github <Icon><span className="fa fa-github" /></Icon></a>

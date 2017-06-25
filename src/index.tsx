@@ -11,7 +11,7 @@ import { css } from 'glamor';
 import createHashHistory from 'history/createHashHistory';
 
 import { reducer as BasicsReducer, StateForBasics, StatisticsElement } from './modules/basics-module/reducer';
-import { addCategoryAction } from './modules/basics-module/actions';
+import { addCategoryAction, addScalarSampleAction } from './modules/basics-module/actions';
 
 import StartPage from './pages/start-page';
 import BasicsPage from './pages/basics-page';
@@ -22,6 +22,7 @@ import BasicElementPage from './pages/basic-element-page';
 import * as Colors from './utils/colors';
 import { varianceElement } from './pages/basics/variance-view';
 import { covarianceElement } from './pages/basics/covariance-view';
+import { linearSample, alternatingSample, constantSample, randomSample } from './utils/samples';
 
 require('./theme.css');
 
@@ -58,6 +59,11 @@ store.dispatch(addCategoryAction({
     varianceElement, covarianceElement
   )
 }));
+
+store.dispatch(addScalarSampleAction(constantSample));
+store.dispatch(addScalarSampleAction(linearSample));
+store.dispatch(addScalarSampleAction(alternatingSample));
+store.dispatch(addScalarSampleAction(randomSample));
 
 render(
   <Provider store={store}>

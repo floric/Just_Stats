@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { RouteComponentProps, NavLink } from 'react-router-dom';
 import { Location, History } from 'history';
-import { Bar } from 'react-chartjs-2';
 import { List } from 'immutable';
 import { Section, Title, Level, LevelRight, LevelLeft, Tag, Icon, Content, Container } from 'bloomer';
 
